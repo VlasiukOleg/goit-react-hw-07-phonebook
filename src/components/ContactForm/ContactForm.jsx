@@ -5,12 +5,14 @@ import { useForm } from 'react-hook-form';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { addContact } from 'redux/contactsSlice';
-import { getContacts } from 'redux/selectors';
+import { addContact } from 'redux/operations';
+
+import { getContacts, getIsLoading } from 'redux/selectors';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
+  const isLoading = useSelector(getIsLoading);
 
   const {
     register,
@@ -30,7 +32,7 @@ export const ContactForm = () => {
       }
     }
 
-    dispatch(addContact(data.name, data.number));
+    dispatch(addContact(data.name, data.phone));
 
     reset();
   };
@@ -74,7 +76,9 @@ export const ContactForm = () => {
         )}
       </label>
 
-      <AddButton type="submit">Add contact</AddButton>
+      <AddButton type="submit" disabled={isLoading}>
+        Add contact
+      </AddButton>
     </PhoneBookForm>
   );
 };

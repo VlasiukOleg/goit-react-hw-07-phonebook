@@ -3,15 +3,17 @@ import { ImCancelCircle } from 'react-icons/im';
 
 export const Contacts = styled.ul`
   list-style: none;
-  margin-left: 0;
+  margin: 10px auto;
   padding: 0;
+  max-width: 380px;
 `;
 
 export const ContactsItem = styled.li`
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
-  justify-content: center;
+  margin-bottom: 12px;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
 
   button {
     display: flex;
@@ -22,7 +24,7 @@ export const ContactsItem = styled.li`
     border-radius: 50%;
     outline: none;
     padding: 4px 4px;
-    background-color: white;
+    background-color: transparent;
     color: white;
   }
 `;
